@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/dialog_background"
+    android:layout_gravity="center"
+    android:elevation="6dp">
+
+    <!-- Nombre del Producto -->
+    <EditText
+        android:id="@+id/etProductName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del producto"
+        android:textColorHint="#A5D6A7"
+        android:textColor="#388E3C"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:layout_marginBottom="12dp"
+        android:inputType="text" />
+
+    <!-- Descripción del Producto -->
+    <EditText
+        android:id="@+id/etProductDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripción del producto"
+        android:textColorHint="#A5D6A7"
+        android:textColor="#388E3C"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:layout_marginBottom="12dp"
+        android:inputType="text" />
+
+    <!-- Precio del Producto -->
+    <EditText
+        android:id="@+id/etProductPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Precio"
+        android:textColorHint="#A5D6A7"
+        android:textColor="#388E3C"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:layout_marginBottom="12dp"
+        android:inputType="numberDecimal" />
+
+    <!-- Stock del Producto -->
+    <EditText
+        android:id="@+id/etProductStock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Stock"
+        android:textColorHint="#A5D6A7"
+        android:textColor="#388E3C"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"
+        android:inputType="number" />
+</LinearLayout>

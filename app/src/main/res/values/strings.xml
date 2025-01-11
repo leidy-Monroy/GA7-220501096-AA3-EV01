@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <!-- Textos para el menú -->
+    <string name="products">cliente</string>
+    <string name="orders">Pedidos</string>
+    <string name="report">Reporte de Pedidos</string>
+
+
+    <!-- Descripciones para accesibilidad -->
+    <string name="icon_products">Icono de productos</string>
+    <string name="icon_orders">Icono de pedidos</string>
+    <string name="icon_report">Icono de reporte</string>
+    <string name="title_activity_insertar_cliente">InsertarClienteActivity</string>
+
+</resources>

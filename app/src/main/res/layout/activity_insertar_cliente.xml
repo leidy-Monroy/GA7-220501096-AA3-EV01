@@ -1,0 +1,191 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="view.InsertarClienteActivity"
+    android:padding="24dp"
+    android:background="#F0F8FF"> <!-- Fondo claro para un ambiente más cálido -->
+
+    <!-- Campo Nombre -->
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textSize="18sp"
+        android:textColor="#006400"
+        android:fontFamily="cursive"
+        app:layout_constraintBottom_toTopOf="@+id/edtNombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="32dp" />
+
+    <EditText
+        android:id="@+id/edtNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el nombre"
+        android:inputType="textPersonName"
+        android:textColor="#333333"
+        android:backgroundTint="#98FB98"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/edtApellido"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:padding="12dp" />
+
+    <!-- Campo Apellido -->
+    <TextView
+        android:id="@+id/tvApellido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apellido"
+        android:textSize="18sp"
+        android:textColor="#006400"
+        android:fontFamily="cursive"
+        app:layout_constraintBottom_toTopOf="@+id/edtApellido"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtNombre"
+        android:layout_marginTop="24dp" />
+
+    <EditText
+        android:id="@+id/edtApellido"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el apellido"
+        android:inputType="textPersonName"
+        android:textColor="#333333"
+        android:backgroundTint="#98FB98"
+        app:layout_constraintTop_toBottomOf="@+id/tvApellido"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/edtDireccion"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:padding="12dp" />
+
+    <!-- Campo Dirección -->
+    <TextView
+        android:id="@+id/tvDireccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dirección"
+        android:textSize="18sp"
+        android:textColor="#006400"
+        android:fontFamily="cursive"
+        app:layout_constraintBottom_toTopOf="@+id/edtDireccion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtApellido"
+        android:layout_marginTop="24dp" />
+
+    <EditText
+        android:id="@+id/edtDireccion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese la dirección"
+        android:inputType="textPostalAddress"
+        android:textColor="#333333"
+        android:backgroundTint="#98FB98"
+        app:layout_constraintTop_toBottomOf="@+id/tvDireccion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/edtTelefono"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:padding="12dp" />
+
+    <!-- Campo Teléfono -->
+    <TextView
+        android:id="@+id/tvTelefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Teléfono"
+        android:textSize="18sp"
+        android:textColor="#006400"
+        android:fontFamily="cursive"
+        app:layout_constraintBottom_toTopOf="@+id/edtTelefono"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtDireccion"
+        android:layout_marginTop="24dp" />
+
+    <EditText
+        android:id="@+id/edtTelefono"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el teléfono"
+        android:inputType="phone"
+        android:textColor="#333333"
+        android:backgroundTint="#98FB98"
+        app:layout_constraintTop_toBottomOf="@+id/tvTelefono"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/edtCorreo"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:padding="12dp" />
+
+    <!-- Campo Correo -->
+    <TextView
+        android:id="@+id/tvCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Correo"
+        android:textSize="18sp"
+        android:textColor="#006400"
+        android:fontFamily="cursive"
+        app:layout_constraintBottom_toTopOf="@+id/edtCorreo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtTelefono"
+        android:layout_marginTop="24dp" />
+
+    <EditText
+        android:id="@+id/edtCorreo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el correo"
+        android:inputType="textEmailAddress"
+        android:textColor="#333333"
+        android:backgroundTint="#98FB98"
+        app:layout_constraintTop_toBottomOf="@+id/tvCorreo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuardarCliente"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:padding="12dp" />
+
+    <!-- Botón Guardar Cliente -->
+    <Button
+        android:id="@+id/btnGuardarCliente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Guardar Cliente"
+        android:textColor="#FFFFFF"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/edtCorreo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:backgroundTint="#32CD32"
+        android:elevation="4dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

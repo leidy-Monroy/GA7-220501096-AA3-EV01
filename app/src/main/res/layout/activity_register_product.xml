@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/logorp">
+
+    <!-- Contenedor para hacer scroll -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Título de la pantalla -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Registrar Producto"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="#4CAF50"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Campo para el nombre del producto -->
+            <EditText
+                android:id="@+id/etProductName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre del producto"
+                android:inputType="text"
+                android:background="@drawable/custom_edittext"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Campo para el precio del producto -->
+            <EditText
+                android:id="@+id/etProductPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Precio del producto"
+                android:inputType="numberDecimal"
+                android:background="@drawable/custom_edittext"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Campo para la descripción del producto -->
+            <EditText
+                android:id="@+id/etProductDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Descripción del producto"
+                android:inputType="textMultiLine"
+                android:background="@drawable/custom_edittext"
+                android:padding="12dp"
+                android:minLines="3"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Campo para el stock del producto -->
+            <EditText
+                android:id="@+id/etProductStock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Stock del producto"
+                android:inputType="number"
+                android:background="@drawable/custom_edittext"
+                android:padding="12dp"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Botón para guardar el producto -->
+            <Button
+                android:id="@+id/btnSaveProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guardar Producto"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/custom_button"
+                android:padding="12dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
