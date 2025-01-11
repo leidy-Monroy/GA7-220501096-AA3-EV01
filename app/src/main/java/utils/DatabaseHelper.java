@@ -25,7 +25,7 @@ import java.util.Map;
 
 public class DatabaseHelper {
 
-    private static final String BASE_URL = "http://192.168.0.14:3307/apis_floristeria/";
+    private static final String BASE_URL = "http://192.168.0.14/apis_floristeria/";
 
     public interface RequestCallback {
         void onComplete(boolean success);
@@ -59,11 +59,11 @@ public class DatabaseHelper {
     }
 
     public static void cargarPedidos(Context context, List<Pedido> listaPedidos, PedidoAdapter adapter, ProgressBar progressBar) {
-        String url = "http://192.168.0.14:8080/apis_floristeria/listar_pedidos.php";
+        String url = BASE_URL + "listar_pedidos.php";
         RequestQueue requestQueue = Volley.newRequestQueue(context);
 
         // Mostrar el ProgressBar antes de empezar la solicitud
-        progressBar.setVisibility(View.VISIBLE);  // Mostrar el ProgressBar
+        progressBar.setVisibility(View.VISIBLE);
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 response -> {
@@ -83,32 +83,28 @@ public class DatabaseHelper {
                         }
 
                         adapter.notifyDataSetChanged();
-                        // Si se necesita actualizar el total de los pedidos, agrega el código aquí
-                        // txtTotalPedidos.setText("Total: $" + String.format("%.2f", total));
                     } catch (Exception e) {
                         e.printStackTrace();
                         Toast.makeText(context, "Error al procesar datos.", Toast.LENGTH_SHORT).show();
                     } finally {
                         // Ocultar el ProgressBar una vez que la solicitud haya terminado
-                        progressBar.setVisibility(View.GONE);  // Ocultar el ProgressBar
+                        progressBar.setVisibility(View.GONE);
                     }
                 },
                 error -> {
                     Toast.makeText(context, "Error al conectar con el servidor.", Toast.LENGTH_SHORT).show();
                     Log.e("DatabaseHelper", "Error: " + error.toString());
                     // Ocultar el ProgressBar si hay un error
-                    progressBar.setVisibility(View.GONE);  // Ocultar el ProgressBar
+                    progressBar.setVisibility(View.GONE);
                 });
 
         requestQueue.add(request);
     }
 
-
-    // Métodos previamente definidos
     public static boolean insertarCliente(String nombre, String apellido, String direccion, String telefono, String correo) {
         try {
-            URL url = new URL("http://192.168.0.14:8080/apis_floristeria/insertar_cliente.php");
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            String url = BASE_URL + "insertar_cliente.php";
+            HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
 
@@ -131,9 +127,8 @@ public class DatabaseHelper {
         // Muestra el ProgressBar antes de iniciar la carga
         activity.progressBar.setVisibility(View.VISIBLE);
 
-        // Declara la variable requestQueue antes de usarla
         RequestQueue requestQueue = Volley.newRequestQueue(activity);
-        String url = "http://192.168.0.14:8080/apis_floristeria/order_details.php?action=fetch";
+        String url = BASE_URL + "order_details.php?action=fetch";
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 response -> {
@@ -167,7 +162,6 @@ public class DatabaseHelper {
                 error -> {
                     Toast.makeText(activity, "Error en la solicitud: " + error.getMessage(), Toast.LENGTH_SHORT).show();
                     Log.e("OrderDetails", "Error: " + error.toString());
-
                     // Oculta el ProgressBar incluso si ocurre un error
                     activity.progressBar.setVisibility(View.GONE);
                 });
@@ -175,10 +169,9 @@ public class DatabaseHelper {
         requestQueue.add(jsonArrayRequest);
     }
 
-
     // Método para registrar producto
     public static void registerProduct(Context context, String name, String price, String description, String stock, Runnable onSuccess) {
-        String url = "http://192.168.0.14:8080/apis_floristeria/register_product.php";
+        String url = BASE_URL + "register_product.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
@@ -211,7 +204,7 @@ public class DatabaseHelper {
 
     // Método para actualizar el producto
     public static void updateProduct(Context context, String id, String name, String price, String description, String stock, Runnable onSuccess) {
-        String url = "http://192.168.0.14:8080/apis_floristeria/order_details.php?action=update";
+        String url = BASE_URL + "actualizar_producto.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
@@ -243,16 +236,18 @@ public class DatabaseHelper {
         requestQueue.add(stringRequest);
     }
 
-    // Método para eliminar el producto
-    public static void deleteProduct(Context context, String id, Runnable onSuccess) {
-        String url = "http://192.168.0.14:8080/apis_floristeria/order_details.php?action=delete";
+    public static void deleteProduct(Context context, String productId, Runnable onSuccess) {
+        String url = BASE_URL + "eliminar_producto.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
+                    // Debugging: Log para la respuesta del servidor
+                    Log.d("Response", response);
+
                     // Manejar respuesta del servidor
                     Toast.makeText(context, "Producto eliminado con éxito", Toast.LENGTH_SHORT).show();
                     if (onSuccess != null) {
-                        onSuccess.run(); // Ejecutar el callback para actualizar la interfaz
+                        onSuccess.run(); // Ejecutar el callback para realizar una acción después
                     }
                 },
                 error -> {
@@ -263,7 +258,7 @@ public class DatabaseHelper {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("id_producto", id);
+                params.put("id_producto", productId);
                 return params;
             }
         };
@@ -274,4 +269,3 @@ public class DatabaseHelper {
     }
 
 }
-
